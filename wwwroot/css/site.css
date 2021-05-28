@@ -1,0 +1,138 @@
+﻿body {
+	background-color: rgb(51, 51, 51);
+	color: #E6E6E6;
+	font-family: Helvetica;
+}
+
+header {
+	display: flex;
+}
+
+ul {
+	list-style: none;
+	font-size: 13px;
+}
+
+#importantNotes {
+	padding: 5px;
+	width: calc(100% - 10px);
+	margin: 10px 0 0 0;
+}
+
+	#importantNotes li {
+		display: inline-block;
+		width: 120px;
+		margin: 2px 5px;
+	}
+
+	#importantNotes a {
+		border: 1px black solid;
+		background-color: #cdeb8b;
+		margin: auto;
+		padding: 8px 5px;
+		color: black;
+		display: block;
+		text-align: center;
+	}
+
+#allNotesContainer {
+	width: 200px;
+	display: inline-flex;
+	margin-top: 10px;
+	flex-direction: column;
+}
+
+#editingNoteTextForm {
+	display: inline-flex;
+	width: calc(100% - 220px);
+	margin-left: 10px;
+	vertical-align: top;
+	margin-top: 12px;
+}
+
+.greyBackground {
+	background-color: #666666;
+}
+
+.whiteBorder {
+	border: 1px #ffffff solid;
+}
+
+.hiddenElement {
+	display: none !important;
+}
+
+ul#allNotes {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 6px;
+}
+
+div#allNotesContainer > a, #allNotesContainer li {
+	margin: 6px 6px 0px 6px;
+}
+
+#allNotes form {
+	display: contents;
+}
+
+#allNotes li {
+	display: inline-flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+	#allNotes li > a:nth-child(1),
+	#allNotes li > a:nth-child(4) {
+		width: 16%;
+	}
+
+	#allNotes li > a:nth-child(2) {
+		width: 58%;
+	}
+
+#allNotes a {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+#allNotesContainer > a {
+	line-height: 30px;
+	text-align: center;
+}
+
+#allNotes li > a:nth-child(1) {
+	font-size: 30px;
+}
+
+#allNotes li > form input {
+	width: 110px;
+}
+
+.important-button {
+	background-color: #cdeb8b;
+	color: black;
+}
+
+#allNotes li > a:nth-child(1):hover,
+#allNotes li > a:nth-child(4):hover {
+	box-shadow: 0px 0px 6px 5px #cdeb8b;
+}
+
+#allNotes li > a:nth-child(2):hover,
+#allNotesContainer > a:hover {
+	/*background-color: #56739c;*/
+	box-shadow: 0px 0px 6px 5px #7195c9;
+}
+
+.onEditing > a:nth-child(2) {
+	background-color: #7195c9;
+}
+
+#edit-text {
+	margin: 8px;
+	color: #E6E6E6;
+	width: 100%;
+	height: 55em;
+}

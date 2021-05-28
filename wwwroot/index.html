@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Notes</title>
+	<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+	<div id="notesContent" style="display:none;">
+		<header class="greyBackground whiteBorder">
+			<h1>Notes</h1>
+			<h2 id="userNameEmail">UserName</h2>
+			<h3>UserInfo</h3>
+			<a onclick="logOut()">Logout</a>
+		</header>
+		<ul id="importantNotes"
+			class="greyBackground whiteBorder"
+			style="display:none;">
+		</ul>
+		<div id="allNotesContainer" class="greyBackground whiteBorder">
+			<a onclick="createNewNote()"
+			   aria-label="New Note"
+			   class="greyBackground whiteBorder">&#10133;</a>
+
+			<ul id="allNotes">
+			</ul>
+		</div>
+
+		<form id="editingNoteTextForm" action="javascript:void(0);" class="greyBackground whiteBorder hiddenElement">
+			<input type="hidden" id="edit-id" />
+			<textarea id="edit-text"
+					  onfocusout="saveChangedText()"
+					  class="greyBackground whiteBorder">
+			</textarea>
+		</form>
+	</div>
+
+	<div id="loginForm" style="display:none;">
+		<h3>Login</h3>
+		<label>Email</label><br />
+		<input type="email" id="emailLogin" /> <br /><br />
+		<label>Password</label><br />
+		<input type="password" id="passwordLogin" /><br /><br />
+		<input type="submit" id="submitLogin" value="Login" />
+		<a onclick="registerFormCalled()">Register</a>
+	</div>
+
+	<div id="registerForm" style="display:none;">
+		<h3>Register</h3>
+		<label>Email</label><br />
+		<input type="email" id="emailRegister" /> <br /><br />
+		<label>Password</label><br />
+		<input type="password" id="passwordRegister" /><br /><br />
+		<span id="passwordConfirmationNotify" style="display:none;">Check for the passwords match</span>
+		<label>Confirm Password</label><br />
+		<input type="password" id="passwordConfirmRegister" /><br /><br />
+		<input type="submit" id="submitRegister" value="Register" />
+		<a onclick="logOut()">Login</a>
+	</div>
+
+	<script src="js/site.js" asp-append-version="true"></script>
+	<script type="text/javascript">
+		getNotes();
+	</script>
+</body>
+</html>
