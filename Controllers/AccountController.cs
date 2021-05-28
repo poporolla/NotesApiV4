@@ -22,6 +22,29 @@ namespace NotesApiV4.Controllers
 		{
 			_context = context;
 		}
+		[HttpPost("/register")]
+		public async Task<ActionResult<User>> RegisterUser(LoginDto loginDto)
+		{
+
+			if (string.IsNullOrEmpty(loginDto.Email) || string.IsNullOrEmpty(loginDto.Password))
+			{
+				return BadRequest(new { errorText = "Empty username or password." });
+			}
+			if (_context.Users.Any(u => u.Email == loginDto.Email))
+			{
+				return BadRequest(new { errorText = "This email is already in use." });
+			}
+			var userRoleId = _context.Roles.FirstOrDefault(r => r.Name == "user").Id;
+			var user = new User { Email = loginDto.Email, Password = loginDto.Password, RoleId = userRoleId };
+			_context.Users.Add(user);
+			await _context.SaveChangesAsync();
+
+			return CreatedAtAction(
+				nameof(UsersController.GetUser), 
+				"Users", 
+				new { id = user.Id }, 
+				user);
+		}
 		[HttpPost("/token")]
 		public IActionResult Token(LoginDto user)
 		{

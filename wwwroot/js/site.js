@@ -341,7 +341,7 @@ document.getElementById("submitRegister").addEventListener("click", e => {
 	};
 
 
-	fetch("api/Users", {
+	fetch("/register", {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
