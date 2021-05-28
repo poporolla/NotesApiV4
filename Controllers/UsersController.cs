@@ -13,6 +13,7 @@ namespace NotesApiV4.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize(Roles = "admin")]
 	public class UsersController : ControllerBase
 	{
 		private readonly NotesContext _context;
@@ -23,7 +24,6 @@ namespace NotesApiV4.Controllers
 		}
 
 		// GET: api/Users
-		[Authorize(Roles = "admin")]
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<User>>> GetUsers()
 		{
@@ -31,7 +31,6 @@ namespace NotesApiV4.Controllers
 		}
 
 		// GET: api/Users/5
-		[Authorize(Roles = "admin")]
 		[HttpGet("{id}")]
 		public async Task<ActionResult<User>> GetUser(long id)
 		{
@@ -47,7 +46,6 @@ namespace NotesApiV4.Controllers
 
 		// PUT: api/Users/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-		[Authorize(Roles = "admin")]
 		[HttpPut("{id}")]
 		public async Task<IActionResult> PutUser(long id, User user)
 		{
@@ -79,6 +77,7 @@ namespace NotesApiV4.Controllers
 
 		// POST: api/Users
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[AllowAnonymous]
 		[HttpPost]
 		public async Task<ActionResult<User>> PostUser(LoginDto loginDto)
 		{
@@ -100,7 +99,6 @@ namespace NotesApiV4.Controllers
 		}
 
 		// DELETE: api/Users/5
-		[Authorize(Roles = "admin")]
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> DeleteUser(long id)
 		{
